@@ -6,8 +6,9 @@ function useSearchItems() {
 
   const searchItems$ = searchItems;
 
-  const doSearchItems = ({ keyword = "" }) => {
-    dispatch.searchItems.searchItems({ keyword });
+  const doSearchItems = async ({ keyword = "" }) => {
+    const response = await dispatch.searchItems.searchItems({ keyword });
+    return response;
   };
 
   return {

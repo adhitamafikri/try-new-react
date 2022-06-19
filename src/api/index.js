@@ -15,7 +15,6 @@ export function searchItems({ keyword = "" }) {
         const response = {
           data: [...items],
         };
-        console.log("from heere", response);
         clearTimeout(timeout);
         resolve(response);
       }, 1000);

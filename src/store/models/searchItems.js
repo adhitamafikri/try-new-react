@@ -38,8 +38,8 @@ const searchItems = {
       try {
         this.beginSearchItems();
         const response = await searchItemsApi({ keyword });
-        console.log('response', response)
         this.successSearchItems(response.data);
+        return response;
       } catch (error) {
         this.errorSearchItems(error);
         throw error;

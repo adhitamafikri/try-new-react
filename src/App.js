@@ -3,19 +3,22 @@ import { Provider as ReduxProvider } from "react-redux";
 import "./App.css";
 import routes from "./routes";
 import store from "./store";
+import { AlertProvider } from "./contexts/Alert";
 
 function App() {
   return (
     <ReduxProvider store={store}>
-      <BrowserRouter>
-        <div className="c-page-body">
-          <Switch>
-            {routes.map((route, idx) => (
-              <Route key={`route-${idx}`} {...route} />
-            ))}
-          </Switch>
-        </div>
-      </BrowserRouter>
+      <AlertProvider>
+        <BrowserRouter>
+          <div className="c-page-body">
+            <Switch>
+              {routes.map((route, idx) => (
+                <Route key={`route-${idx}`} {...route} />
+              ))}
+            </Switch>
+          </div>
+        </BrowserRouter>
+      </AlertProvider>
     </ReduxProvider>
   );
 }
