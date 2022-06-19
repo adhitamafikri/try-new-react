@@ -1,8 +1,19 @@
 .c-alert {
-    background: pink;
-    width: 280px;
-    height: 100px;
     position: fixed;
     top: 0;
     right: 0;
+    z-index: 9999;
+}
+
+.c-alert-item {
+    width: 180px;
+    border-radius: 4px;
+    margin: 16px;
+    padding: 16px;
+}
+.c-alert-item--info {
+    background-color: #9ccc65;
+}
+.c-alert-item--error {
+    background-color: #ef5350;
 }

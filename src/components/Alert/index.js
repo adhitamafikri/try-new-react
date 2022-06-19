@@ -1,8 +1,29 @@
 import React from "react";
 import "./style.css";
+import useAlert from "../../hooks/useAlert";
 
-const Alert = () => {
-  return <div className="c-alert">alerts</div>;
+const RenderAlerts = ({ alerts = [] }) => {
+  if (alerts.length) {
+    return alerts.map((al, idx) => {
+      return (
+        <div
+          className={`c-alert-item c-alert-item--${al.type}`}
+          key={`alert-${al.type}-${idx}`}
+        >
+          {al.text}
+        </div>
+      );
+    });
+  }
 };
 
-export default Alert;
+const Alert = () => {
+  const { alerts } = useAlert();
+  return (
+    <div className="c-alert">
+      <RenderAlerts alerts={alerts} />
+    </div>
+  );
+};
+
+export default React.memo(Alert);
