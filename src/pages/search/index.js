@@ -1,12 +1,7 @@
-import React, { useCallback, useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import useSearchItems from "../../hooks/useSearchItems";
-import {
-  useAlertState,
-  useAlertDispatch,
-  pushAlert,
-} from "../../contexts/Alert";
-import { useEffect } from "react";
+import useAlert from "../../hooks/useAlert";
 
 const RenderItems = ({ searchItems$ }) => {
   const { loading, data } = searchItems$;
@@ -31,8 +26,7 @@ const RenderItems = ({ searchItems$ }) => {
 const SearchPage = () => {
   const history = useHistory();
   const { searchItems$, doSearchItems } = useSearchItems();
-  const { alerts } = useAlertState();
-  const alertDispatch = useAlertDispatch();
+  const { alerts, pushAlert } = useAlert();
 
   const [searchQuery, setSearchQuery] = useState("");
 
@@ -40,9 +34,9 @@ const SearchPage = () => {
     event.preventDefault();
     const { data } = await doSearchItems({ keyword: searchQuery });
     if (data?.length) {
-      pushAlert(alertDispatch, { type: "info", text: "Data Found" });
+      pushAlert({ type: "info", text: "Data Found" });
     } else {
-      pushAlert(alertDispatch, { type: "error", text: "No Data Found" });
+      pushAlert({ type: "error", text: "No Data Found" });
     }
 
     history.push({

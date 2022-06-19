@@ -4,6 +4,7 @@ import "./App.css";
 import routes from "./routes";
 import store from "./store";
 import { AlertProvider } from "./contexts/Alert";
+import Alert from "./components/Alert";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
                 <Route key={`route-${idx}`} {...route} />
               ))}
             </Switch>
+            <Alert />
           </div>
         </BrowserRouter>
       </AlertProvider>
