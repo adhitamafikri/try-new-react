@@ -10,10 +10,35 @@
     border-radius: 4px;
     margin: 16px;
     padding: 16px;
+    position: relative;
 }
 .c-alert-item--info {
     background-color: #9ccc65;
 }
 .c-alert-item--error {
+    background-color: #ef5350;
+}
+.c-alert-text {
+    margin: 0;
+}
+.c-close-icon {
+    width: 28px;
+    height: 28px;
+    border: 1px solid rgba(0, 0, 0, 0.35);
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: -14px;
+    margin-right: -14px;
+}
+.c-alert-item--info .c-close-icon {
+    background-color: #9ccc65;
+}
+.c-alert-item--error .c-close-icon {
     background-color: #ef5350;
 }

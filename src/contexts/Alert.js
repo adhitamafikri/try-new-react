@@ -14,24 +14,24 @@ function reducer(state, action) {
       return {
         ...state,
         alerts: [
-          ...state.alerts,
           {
             ...payload,
             id: `alert-info-${new Date().getTime()}`,
             type: "info",
           },
+          ...state.alerts,
         ],
       };
     case "PUSH_ALERT_ERROR":
       return {
         ...state,
         alerts: [
-          ...state.alerts,
           {
             ...payload,
             id: `alert-error-${new Date().getTime()}`,
             type: "error",
           },
+          ...state.alerts,
         ],
       };
     case "REMOVE_ALERT":

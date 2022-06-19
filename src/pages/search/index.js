@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import useSearchItems from "../../hooks/useSearchItems";
 import useAlert from "../../hooks/useAlert";
@@ -44,10 +44,6 @@ const SearchPage = () => {
       search: `?keyword=${searchQuery}`,
     });
   };
-
-  useEffect(() => {
-    console.log("alertss?", alerts);
-  }, [alerts]);
 
   return (
     <>
